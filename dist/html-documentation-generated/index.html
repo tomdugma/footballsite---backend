@@ -1,0 +1,1258 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Simple Inventory API</title>
+    <style type="text/css">
+      body {
+      	font-family: Trebuchet MS, sans-serif;
+      	font-size: 15px;
+      	color: #444;
+      	margin-right: 24px;
+      }
+      
+      h1	{
+      	font-size: 25px;
+      }
+      h2	{
+      	font-size: 20px;
+      }
+      h3	{
+      	font-size: 16px;
+      	font-weight: bold;
+      }
+      hr	{
+      	height: 1px;
+      	border: 0;
+      	color: #ddd;
+      	background-color: #ddd;
+      }
+      
+      .app-desc {
+        clear: both;
+        margin-left: 20px;
+      }
+      .param-name {
+        width: 100%;
+      }
+      .license-info {
+        margin-left: 20px;
+      }
+      
+      .license-url {
+        margin-left: 20px;
+      }
+      
+      .model {
+        margin: 0 0 0px 20px;
+      }
+      
+      .method {
+        margin-left: 20px;
+      }
+      
+      .method-notes	{
+      	margin: 10px 0 20px 0;
+      	font-size: 90%;
+      	color: #555;
+      }
+      
+      pre {
+        padding: 10px;
+        margin-bottom: 2px;
+      }
+      
+      .http-method {
+       text-transform: uppercase;
+      }
+      
+      pre.get {
+        background-color: #0f6ab4;
+      }
+      
+      pre.post {
+        background-color: #10a54a;
+      }
+      
+      pre.put {
+        background-color: #c5862b;
+      }
+      
+      pre.delete {
+        background-color: #a41e22;
+      }
+      
+      .huge	{
+      	color: #fff;
+      }
+      
+      pre.example {
+        background-color: #f3f3f3;
+        padding: 10px;
+        border: 1px solid #ddd;
+      }
+      
+      code {
+        white-space: pre;
+      }
+      
+      .nickname {
+        font-weight: bold;
+      }
+      
+      .method-path {
+        font-size: 1.5em;
+        background-color: #0f6ab4;
+      }
+      
+      .up {
+        float:right;
+      }
+      
+      .parameter {
+        width: 500px;
+      }
+      
+      .param {
+        width: 500px;
+        padding: 10px 0 0 20px;
+        font-weight: bold;
+      }
+      
+      .param-desc {
+        width: 700px;
+        padding: 0 0 0 20px;
+        color: #777;
+      }
+      
+      .param-type {
+        font-style: italic;
+      }
+      
+      .param-enum-header {
+      width: 700px;
+      padding: 0 0 0 60px;
+      color: #777;
+      font-weight: bold;
+      }
+      
+      .param-enum {
+      width: 700px;
+      padding: 0 0 0 80px;
+      color: #777;
+      font-style: italic;
+      }
+      
+      .field-label {
+        padding: 0;
+        margin: 0;
+        clear: both;
+      }
+      
+      .field-items	{
+      	padding: 0 0 15px 0;
+      	margin-bottom: 15px;
+      }
+      
+      .return-type {
+        clear: both;
+        padding-bottom: 10px;
+      }
+      
+      .param-header {
+        font-weight: bold;
+      }
+      
+      .method-tags {
+        text-align: right;
+      }
+      
+      .method-tag {
+        background: none repeat scroll 0% 0% #24A600;
+        border-radius: 3px;
+        padding: 2px 10px;
+        margin: 2px;
+        color: #FFF;
+        display: inline-block;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+  <h1>Simple Inventory API</h1>
+    <div class="app-desc">This is a simple API</div>
+    <div class="app-desc">More information: <a href="https://helloreverb.com">https://helloreverb.com</a></div>
+    <div class="app-desc">Contact Info: <a href="you@your-company.com">you@your-company.com</a></div>
+    <div class="app-desc">Version: 1.0.0</div>
+    <div class="app-desc">BasePath:/goldmand/myapi2/1.0.0</div>
+    <div class="license-info">Apache 2.0</div>
+    <div class="license-url">http://www.apache.org/licenses/LICENSE-2.0.html</div>
+  <h2>Access</h2>
+
+  <h2><a name="__Methods">Methods</a></h2>
+  [ Jump to <a href="#__Models">Models</a> ]
+
+  <h3>Table of Contents </h3>
+  <div class="method-summary"></div>
+  <h4><a href="#AddMatch">AddMatch</a></h4>
+  <ul>
+  <li><a href="#leagueManageLeagueNamePost"><code><span class="http-method">post</span> /leagueManage/{leagueName}</code></a></li>
+  <li><a href="#matchesUserNamePost"><code><span class="http-method">post</span> /matches/{userName}</code></a></li>
+  </ul>
+  <h4><a href="#AddTeam">AddTeam</a></h4>
+  <ul>
+  <li><a href="#playersUserNamePost"><code><span class="http-method">post</span> /players/{userName}</code></a></li>
+  <li><a href="#teamsUserNamePost"><code><span class="http-method">post</span> /teams/{userName}</code></a></li>
+  </ul>
+  <h4><a href="#Default">Default</a></h4>
+  <ul>
+  <li><a href="#coachCoachNameGet"><code><span class="http-method">get</span> /coach/{coachName}</code></a></li>
+  <li><a href="#leagueLeagueNameGet"><code><span class="http-method">get</span> /league/{leagueName}</code></a></li>
+  <li><a href="#matchesUserNameGet"><code><span class="http-method">get</span> /matches/{userName}</code></a></li>
+  <li><a href="#playerPlayerNameGet"><code><span class="http-method">get</span> /player/{playerName}</code></a></li>
+  <li><a href="#playersUserNameGet"><code><span class="http-method">get</span> /players/{userName}</code></a></li>
+  <li><a href="#teamTeamNameGet"><code><span class="http-method">get</span> /team/{teamName}</code></a></li>
+  <li><a href="#teamsUserNameGet"><code><span class="http-method">get</span> /teams/{userName}</code></a></li>
+  </ul>
+  <h4><a href="#Login">Login</a></h4>
+  <ul>
+  <li><a href="#loginPost"><code><span class="http-method">post</span> /login</code></a></li>
+  </ul>
+  <h4><a href="#Logout">Logout</a></h4>
+  <ul>
+  <li><a href="#logoutGet"><code><span class="http-method">get</span> /logout</code></a></li>
+  </ul>
+  <h4><a href="#Matches">Matches</a></h4>
+  <ul>
+  <li><a href="#matchesGet"><code><span class="http-method">get</span> /matches</code></a></li>
+  </ul>
+  <h4><a href="#Register">Register</a></h4>
+  <ul>
+  <li><a href="#registerPost"><code><span class="http-method">post</span> /register</code></a></li>
+  </ul>
+  <h4><a href="#UpdateMatchResultsAndEvents">UpdateMatchResultsAndEvents</a></h4>
+  <ul>
+  <li><a href="#leagueManageLeagueNamePut"><code><span class="http-method">put</span> /leagueManage/{leagueName}</code></a></li>
+  </ul>
+
+  <h1><a name="AddMatch">AddMatch</a></h1>
+  <div class="method"><a name="leagueManageLeagueNamePost"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /leagueManage/{leagueName}</code></pre></div>
+    <div class="method-summary">A union representetive user adding match (<span class="nickname">leagueManageLeagueNamePost</span>)</div>
+    <div class="method-notes">A JSON object contains the match details</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">leagueName (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; the name of the league </div>    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#match">match</a> (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; match added to database </div>
+                </div>  <!-- field-items -->
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">201</h4>
+    New match has been added
+        <a href="#"></a>
+    <h4 class="field-label">204</h4>
+    no content
+        <a href="#"></a>
+    <h4 class="field-label">400</h4>
+    bad request
+        <a href="#"></a>
+    <h4 class="field-label">401</h4>
+    unauthorized client
+        <a href="#"></a>
+    <h4 class="field-label">403</h4>
+    client doesn&#x27;t have access
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    user not found
+        <a href="#"></a>
+    <h4 class="field-label">500</h4>
+    server error
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="matchesUserNamePost"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /matches/{userName}</code></pre></div>
+    <div class="method-summary">user adding match to favorites (<span class="nickname">matchesUserNamePost</span>)</div>
+    <div class="method-notes">A JSON object contains the match details</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">userName (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; the userName </div>    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#match">match</a> (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; match added to database </div>
+                </div>  <!-- field-items -->
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    user found
+        <a href="#"></a>
+    <h4 class="field-label">201</h4>
+    New match has been added to favorites
+        <a href="#"></a>
+    <h4 class="field-label">204</h4>
+    no content
+        <a href="#"></a>
+    <h4 class="field-label">400</h4>
+    bad request
+        <a href="#"></a>
+    <h4 class="field-label">401</h4>
+    unauthorized client
+        <a href="#"></a>
+    <h4 class="field-label">403</h4>
+    client doesn&#x27;t have access
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    user not found
+        <a href="#"></a>
+    <h4 class="field-label">500</h4>
+    server error
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="AddTeam">AddTeam</a></h1>
+  <div class="method"><a name="playersUserNamePost"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /players/{userName}</code></pre></div>
+    <div class="method-summary">user adding player to favorites (<span class="nickname">playersUserNamePost</span>)</div>
+    <div class="method-notes">A JSON object contains the player details</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">userName (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; the userName </div>    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#player">player</a> (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; player added to database </div>
+                </div>  <!-- field-items -->
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    user found
+        <a href="#"></a>
+    <h4 class="field-label">201</h4>
+    player added to favorites
+        <a href="#"></a>
+    <h4 class="field-label">204</h4>
+    no content
+        <a href="#"></a>
+    <h4 class="field-label">400</h4>
+    bad request
+        <a href="#"></a>
+    <h4 class="field-label">401</h4>
+    unauthorized client
+        <a href="#"></a>
+    <h4 class="field-label">403</h4>
+    client doesn&#x27;t have access
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    user not found
+        <a href="#"></a>
+    <h4 class="field-label">500</h4>
+    server error
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="teamsUserNamePost"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /teams/{userName}</code></pre></div>
+    <div class="method-summary">user addingteam to favorites (<span class="nickname">teamsUserNamePost</span>)</div>
+    <div class="method-notes">A JSON object contains the team details</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">userName (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; the userName </div>    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#team">team</a> (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; team added to database </div>
+                </div>  <!-- field-items -->
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    user found
+        <a href="#"></a>
+    <h4 class="field-label">201</h4>
+    team added to favorites
+        <a href="#"></a>
+    <h4 class="field-label">204</h4>
+    no content
+        <a href="#"></a>
+    <h4 class="field-label">400</h4>
+    bad request
+        <a href="#"></a>
+    <h4 class="field-label">401</h4>
+    unauthorized client
+        <a href="#"></a>
+    <h4 class="field-label">403</h4>
+    client doesn&#x27;t have access
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    user not found
+        <a href="#"></a>
+    <h4 class="field-label">500</h4>
+    server error
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="Default">Default</a></h1>
+  <div class="method"><a name="coachCoachNameGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /coach/{coachName}</code></pre></div>
+    <div class="method-summary">get coach by name (<span class="nickname">coachCoachNameGet</span>)</div>
+    <div class="method-notes">A JSON object contains all the details</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">coachName (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; the name of the coach </div>    </div>  <!-- field-items -->
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    coach found
+        <a href="#"></a>
+    <h4 class="field-label">204</h4>
+    no content
+        <a href="#"></a>
+    <h4 class="field-label">400</h4>
+    bad request
+        <a href="#"></a>
+    <h4 class="field-label">401</h4>
+    unauthorized client
+        <a href="#"></a>
+    <h4 class="field-label">403</h4>
+    client doesn&#x27;t have access
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    user not found
+        <a href="#"></a>
+    <h4 class="field-label">500</h4>
+    server error
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="leagueLeagueNameGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /league/{leagueName}</code></pre></div>
+    <div class="method-summary">get league by name (<span class="nickname">leagueLeagueNameGet</span>)</div>
+    <div class="method-notes">A JSON object contains all the details</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">leagueName (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; the name of the league </div>    </div>  <!-- field-items -->
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    league found
+        <a href="#"></a>
+    <h4 class="field-label">204</h4>
+    no content
+        <a href="#"></a>
+    <h4 class="field-label">400</h4>
+    bad request
+        <a href="#"></a>
+    <h4 class="field-label">401</h4>
+    unauthorized client
+        <a href="#"></a>
+    <h4 class="field-label">403</h4>
+    client doesn&#x27;t have access
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    user not found
+        <a href="#"></a>
+    <h4 class="field-label">500</h4>
+    server error
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="matchesUserNameGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /matches/{userName}</code></pre></div>
+    <div class="method-summary">get favorite matches for user (<span class="nickname">matchesUserNameGet</span>)</div>
+    <div class="method-notes">A JSON object contains all the details</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">userName (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; the userName object </div>    </div>  <!-- field-items -->
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    user found
+        <a href="#"></a>
+    <h4 class="field-label">204</h4>
+    no content
+        <a href="#"></a>
+    <h4 class="field-label">400</h4>
+    bad request
+        <a href="#"></a>
+    <h4 class="field-label">401</h4>
+    unauthorized client
+        <a href="#"></a>
+    <h4 class="field-label">403</h4>
+    client doesn&#x27;t have access
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    user not found
+        <a href="#"></a>
+    <h4 class="field-label">500</h4>
+    server error
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="playerPlayerNameGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /player/{playerName}</code></pre></div>
+    <div class="method-summary">get player by name (<span class="nickname">playerPlayerNameGet</span>)</div>
+    <div class="method-notes">A JSON object contains all the details</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">playerName (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; the name of the player </div>    </div>  <!-- field-items -->
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    player found
+        <a href="#"></a>
+    <h4 class="field-label">204</h4>
+    no content
+        <a href="#"></a>
+    <h4 class="field-label">400</h4>
+    bad request
+        <a href="#"></a>
+    <h4 class="field-label">401</h4>
+    unauthorized client
+        <a href="#"></a>
+    <h4 class="field-label">403</h4>
+    client doesn&#x27;t have access
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    user not found
+        <a href="#"></a>
+    <h4 class="field-label">500</h4>
+    server error
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="playersUserNameGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /players/{userName}</code></pre></div>
+    <div class="method-summary">get favorite players for user (<span class="nickname">playersUserNameGet</span>)</div>
+    <div class="method-notes">A JSON object contains all favorite players of the user</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">userName (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; the userName object </div>    </div>  <!-- field-items -->
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    user found
+        <a href="#"></a>
+    <h4 class="field-label">204</h4>
+    no content
+        <a href="#"></a>
+    <h4 class="field-label">400</h4>
+    bad request
+        <a href="#"></a>
+    <h4 class="field-label">401</h4>
+    unauthorized client
+        <a href="#"></a>
+    <h4 class="field-label">403</h4>
+    client doesn&#x27;t have access
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    user not found
+        <a href="#"></a>
+    <h4 class="field-label">500</h4>
+    server error
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="teamTeamNameGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /team/{teamName}</code></pre></div>
+    <div class="method-summary">get team by name (<span class="nickname">teamTeamNameGet</span>)</div>
+    <div class="method-notes">A JSON object contains all the details</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">teamName (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; the name of the team </div>    </div>  <!-- field-items -->
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    team found
+        <a href="#"></a>
+    <h4 class="field-label">204</h4>
+    no content
+        <a href="#"></a>
+    <h4 class="field-label">400</h4>
+    bad request
+        <a href="#"></a>
+    <h4 class="field-label">401</h4>
+    unauthorized client
+        <a href="#"></a>
+    <h4 class="field-label">403</h4>
+    client doesn&#x27;t have access
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    user not found
+        <a href="#"></a>
+    <h4 class="field-label">500</h4>
+    server error
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="teamsUserNameGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /teams/{userName}</code></pre></div>
+    <div class="method-summary">get favorite teams for user (<span class="nickname">teamsUserNameGet</span>)</div>
+    <div class="method-notes">A JSON object contains all favorite teams of the user</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">userName (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; the userName object </div>    </div>  <!-- field-items -->
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    favorite teams found
+        <a href="#"></a>
+    <h4 class="field-label">204</h4>
+    no content
+        <a href="#"></a>
+    <h4 class="field-label">400</h4>
+    bad request
+        <a href="#"></a>
+    <h4 class="field-label">401</h4>
+    unauthorized client
+        <a href="#"></a>
+    <h4 class="field-label">403</h4>
+    client doesn&#x27;t have access
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    user not found
+        <a href="#"></a>
+    <h4 class="field-label">500</h4>
+    server error
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="Login">Login</a></h1>
+  <div class="method"><a name="loginPost"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /login</code></pre></div>
+    <div class="method-summary">A new user is connected (<span class="nickname">loginPost</span>)</div>
+    <div class="method-notes">A JSON object contains all the details</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#loginUser">loginUser</a> (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+                </div>  <!-- field-items -->
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    login successfuly
+        <a href="#"></a>
+    <h4 class="field-label">204</h4>
+    no content
+        <a href="#"></a>
+    <h4 class="field-label">400</h4>
+    bad request
+        <a href="#"></a>
+    <h4 class="field-label">401</h4>
+    unauthorized client
+        <a href="#"></a>
+    <h4 class="field-label">403</h4>
+    client doesn&#x27;t have access
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    user not found
+        <a href="#"></a>
+    <h4 class="field-label">500</h4>
+    server error
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="Logout">Logout</a></h1>
+  <div class="method"><a name="logoutGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /logout</code></pre></div>
+    <div class="method-summary">user is disconnected (<span class="nickname">logoutGet</span>)</div>
+    <div class="method-notes">A JSON object contains all the details</div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    logout successfuly
+        <a href="#"></a>
+    <h4 class="field-label">204</h4>
+    no content
+        <a href="#"></a>
+    <h4 class="field-label">400</h4>
+    bad request
+        <a href="#"></a>
+    <h4 class="field-label">401</h4>
+    unauthorized client
+        <a href="#"></a>
+    <h4 class="field-label">403</h4>
+    client doesn&#x27;t have access
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    user not found
+        <a href="#"></a>
+    <h4 class="field-label">500</h4>
+    server error
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="Matches">Matches</a></h1>
+  <div class="method"><a name="matchesGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /matches</code></pre></div>
+    <div class="method-summary">matches of the current cycle (<span class="nickname">matchesGet</span>)</div>
+    <div class="method-notes">A JSON object contains all the details</div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    matches found
+        <a href="#"></a>
+    <h4 class="field-label">204</h4>
+    no content
+        <a href="#"></a>
+    <h4 class="field-label">400</h4>
+    bad request
+        <a href="#"></a>
+    <h4 class="field-label">401</h4>
+    unauthorized client
+        <a href="#"></a>
+    <h4 class="field-label">403</h4>
+    client doesn&#x27;t have access
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    user not found
+        <a href="#"></a>
+    <h4 class="field-label">500</h4>
+    server error
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="Register">Register</a></h1>
+  <div class="method"><a name="registerPost"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /register</code></pre></div>
+    <div class="method-summary">A new user from client is added to the server (<span class="nickname">registerPost</span>)</div>
+    <div class="method-notes">A JSON object contains the user details</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#user">user</a> (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; user added to database </div>
+                </div>  <!-- field-items -->
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    user found
+        <a href="#"></a>
+    <h4 class="field-label">201</h4>
+    New user created
+        <a href="#"></a>
+    <h4 class="field-label">204</h4>
+    no content
+        <a href="#"></a>
+    <h4 class="field-label">400</h4>
+    bad request
+        <a href="#"></a>
+    <h4 class="field-label">401</h4>
+    unauthorized client
+        <a href="#"></a>
+    <h4 class="field-label">403</h4>
+    client doesn&#x27;t have access
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    user not found
+        <a href="#"></a>
+    <h4 class="field-label">500</h4>
+    server error
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="UpdateMatchResultsAndEvents">UpdateMatchResultsAndEvents</a></h1>
+  <div class="method"><a name="leagueManageLeagueNamePut"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="put"><code class="huge"><span class="http-method">put</span> /leagueManage/{leagueName}</code></pre></div>
+    <div class="method-summary">A union representetive user updating match results and events (<span class="nickname">leagueManageLeagueNamePut</span>)</div>
+    <div class="method-notes">A JSON object contains the match details</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">leagueName (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; the name of the league </div>    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#match">match</a> (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; match results and events updated in database </div>
+                </div>  <!-- field-items -->
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    league found
+        <a href="#"></a>
+    <h4 class="field-label">201</h4>
+    match results and events updated
+        <a href="#"></a>
+    <h4 class="field-label">204</h4>
+    no content
+        <a href="#"></a>
+    <h4 class="field-label">400</h4>
+    bad request
+        <a href="#"></a>
+    <h4 class="field-label">401</h4>
+    unauthorized client
+        <a href="#"></a>
+    <h4 class="field-label">403</h4>
+    client doesn&#x27;t have access
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    user not found
+        <a href="#"></a>
+    <h4 class="field-label">500</h4>
+    server error
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+
+  <h2><a name="__Models">Models</a></h2>
+  [ Jump to <a href="#__Methods">Methods</a> ]
+
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#coach"><code>coach</code></a></li>
+    <li><a href="#event"><code>event</code></a></li>
+    <li><a href="#league"><code>league</code></a></li>
+    <li><a href="#loginUser"><code>loginUser</code></a></li>
+    <li><a href="#match"><code>match</code></a></li>
+    <li><a href="#player"><code>player</code></a></li>
+    <li><a href="#referee"><code>referee</code></a></li>
+    <li><a href="#stadium"><code>stadium</code></a></li>
+    <li><a href="#team"><code>team</code></a></li>
+    <li><a href="#user"><code>user</code></a></li>
+  </ol>
+
+  <div class="model">
+    <h3><a name="coach"><code>coach</code></a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Model containing Coach Info</div>
+    <div class="field-items">
+      <div class="param">id (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> coach&#x27;s ID contains at least 5 letters </div>
+          <div class="param-desc"><span class="param-type">example: 12345</span></div>
+<div class="param">commonName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> coach&#x27;s name contains at least 3 letters </div>
+          <div class="param-desc"><span class="param-type">example: ddi</span></div>
+<div class="param">nationality (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> coach&#x27;s nationality </div>
+          <div class="param-desc"><span class="param-type">example: Spain</span></div>
+<div class="param">birthdate (optional)</div><div class="param-desc"><span class="param-type"><a href="#date">date</a></span> coach&#x27;s birthdate format: date</div>
+<div class="param">birthCountry (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> coach&#x27;s birthCountry </div>
+          <div class="param-desc"><span class="param-type">example: Spain</span></div>
+<div class="param">team (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> coach&#x27;s team </div>
+          <div class="param-desc"><span class="param-type">example: Barcelona</span></div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="event"><code>event</code></a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Model containing Event Info</div>
+    <div class="field-items">
+      <div class="param">id (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> event&#x27;s ID contains at least 5 letters </div>
+          <div class="param-desc"><span class="param-type">example: 12345</span></div>
+<div class="param">fullName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> event&#x27;s name contains at least 3 letters </div>
+          <div class="param-desc"><span class="param-type">example: penalty</span></div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="league"><code>league</code></a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Model containing League Info</div>
+    <div class="field-items">
+      <div class="param">id (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> League ID contains at least 5 letters </div>
+          <div class="param-desc"><span class="param-type">example: 12345</span></div>
+<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> League name contains at least 2 letters </div>
+          <div class="param-desc"><span class="param-type">example: Top league</span></div>
+<div class="param">season (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> League&#x27;s season name contains at least 1 letters </div>
+          <div class="param-desc"><span class="param-type">example: season 20</span></div>
+<div class="param">stage (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> League&#x27;s stage name contains at least 1 letters </div>
+          <div class="param-desc"><span class="param-type">example: stage 20</span></div>
+<div class="param">matches (optional)</div><div class="param-desc"><span class="param-type"><a href="#match">array[match]</a></span> the matches list of the league </div>
+          <div class="param-desc"><span class="param-type">example: [&quot;match1&quot;,&quot;match2&quot;,&quot;match3&quot;]</span></div>
+<div class="param">teams (optional)</div><div class="param-desc"><span class="param-type"><a href="#team">array[team]</a></span> the teams list of the league </div>
+          <div class="param-desc"><span class="param-type">example: [&quot;team1&quot;,&quot;team2&quot;,&quot;team3&quot;]</span></div>
+<div class="param">teamsQuantity (optional)</div><div class="param-desc"><span class="param-type"><a href="#BigDecimal">BigDecimal</a></span> total number of teams in the league </div>
+          <div class="param-desc"><span class="param-type">example: 12</span></div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="loginUser"><code>loginUser</code></a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Model containing login user Info</div>
+    <div class="field-items">
+      <div class="param">username (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> username contain between 3 to 8 letters only </div>
+          <div class="param-desc"><span class="param-type">example: Danidin</span></div>
+<div class="param">password (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> password contains between 5 to 10 chars, at least one of them is a number and a special char format: password</div>
+          <div class="param-desc"><span class="param-type">example: joanne@56</span></div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="match"><code>match</code></a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Model containing Match Info</div>
+    <div class="field-items">
+      <div class="param">date (optional)</div><div class="param-desc"><span class="param-type"><a href="#date">date</a></span> Match date format: date</div>
+<div class="param">time (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> time </div>
+          <div class="param-desc"><span class="param-type">example: 15:00</span></div>
+<div class="param">homeTeam (optional)</div><div class="param-desc"><span class="param-type"><a href="#team">array[team]</a></span> the home team object </div>
+          <div class="param-desc"><span class="param-type">example: team1</span></div>
+<div class="param">awayTeam (optional)</div><div class="param-desc"><span class="param-type"><a href="#team">array[team]</a></span> the away team object </div>
+          <div class="param-desc"><span class="param-type">example: team2</span></div>
+<div class="param">stadium (optional)</div><div class="param-desc"><span class="param-type"><a href="#stadium">array[stadium]</a></span> the stadium of the match object </div>
+          <div class="param-desc"><span class="param-type">example: stadium1</span></div>
+<div class="param">score (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> the score of the match </div>
+          <div class="param-desc"><span class="param-type">example: 2:1</span></div>
+<div class="param">events (optional)</div><div class="param-desc"><span class="param-type"><a href="#event">array[event]</a></span> the events of this match </div>
+          <div class="param-desc"><span class="param-type">example: [&quot;event1&quot;,&quot;event2&quot;]</span></div>
+<div class="param">referees (optional)</div><div class="param-desc"><span class="param-type"><a href="#referee">array[referee]</a></span> the referees of this match </div>
+          <div class="param-desc"><span class="param-type">example: [&quot;referee1&quot;,&quot;referee2&quot;]</span></div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="player"><code>player</code></a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Model containing player Info</div>
+    <div class="field-items">
+      <div class="param">id (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> player&#x27;s ID contains at least 5 letters </div>
+          <div class="param-desc"><span class="param-type">example: 12345</span></div>
+<div class="param">commonName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> player&#x27;s name contains at least 3 letters </div>
+          <div class="param-desc"><span class="param-type">example: Leo Messi</span></div>
+<div class="param">nationality (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> player&#x27;s nationality </div>
+          <div class="param-desc"><span class="param-type">example: Spain</span></div>
+<div class="param">birthdate (optional)</div><div class="param-desc"><span class="param-type"><a href="#date">date</a></span> player&#x27;s birthdate format: date</div>
+<div class="param">birthCountry (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> player&#x27;s birthCountry </div>
+          <div class="param-desc"><span class="param-type">example: Spain</span></div>
+<div class="param">height (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> player&#x27;s height </div>
+          <div class="param-desc"><span class="param-type">example: 1.90</span></div>
+<div class="param">weight (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> player&#x27;s weight </div>
+          <div class="param-desc"><span class="param-type">example: 75</span></div>
+<div class="param">team (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> player&#x27;s team </div>
+          <div class="param-desc"><span class="param-type">example: Barcelona</span></div>
+<div class="param">position (optional)</div><div class="param-desc"><span class="param-type"><a href="#BigDecimal">BigDecimal</a></span> player&#x27;s position </div>
+          <div class="param-desc"><span class="param-type">example: 1</span></div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="referee"><code>referee</code></a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Model containing Referee Info</div>
+    <div class="field-items">
+      <div class="param">id (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> referee&#x27;s ID contains at least 5 letters </div>
+          <div class="param-desc"><span class="param-type">example: 12345</span></div>
+<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> referee&#x27;s name contains at least 5 letters </div>
+          <div class="param-desc"><span class="param-type">example: dan</span></div>
+<div class="param">league (optional)</div><div class="param-desc"><span class="param-type"><a href="#league">array[league]</a></span> referee&#x27;s league </div>
+          <div class="param-desc"><span class="param-type">example: league1</span></div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="stadium"><code>stadium</code></a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Model containing Stadium Info</div>
+    <div class="field-items">
+      <div class="param">id (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> stadium ID contains at least 5 letters </div>
+          <div class="param-desc"><span class="param-type">example: 12345</span></div>
+<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> stadium name contains at least 3 letters </div>
+          <div class="param-desc"><span class="param-type">example: Camp nou</span></div>
+<div class="param">city (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> city name contains at least 3 letters </div>
+          <div class="param-desc"><span class="param-type">example: Barcelona</span></div>
+<div class="param">teams (optional)</div><div class="param-desc"><span class="param-type"><a href="#team">array[team]</a></span> the teams play in the stadium </div>
+          <div class="param-desc"><span class="param-type">example: [&quot;team1&quot;,&quot;team2&quot;]</span></div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="team"><code>team</code></a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Model containing team Info</div>
+    <div class="field-items">
+      <div class="param">id (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> team ID contains at least 5 letters </div>
+          <div class="param-desc"><span class="param-type">example: 12345</span></div>
+<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> team name contains at least 3 letters </div>
+          <div class="param-desc"><span class="param-type">example: Barcelona</span></div>
+<div class="param">players (optional)</div><div class="param-desc"><span class="param-type"><a href="#player">array[player]</a></span> the players list of the team </div>
+          <div class="param-desc"><span class="param-type">example: [&quot;player1&quot;,&quot;player2&quot;,&quot;player3&quot;]</span></div>
+<div class="param">budget (optional)</div><div class="param-desc"><span class="param-type"><a href="#BigDecimal">BigDecimal</a></span> total budget of the team </div>
+<div class="param">coach (optional)</div><div class="param-desc"><span class="param-type"><a href="#coach">array[coach]</a></span> the coach of the team </div>
+          <div class="param-desc"><span class="param-type">example: coach1</span></div>
+<div class="param">matches (optional)</div><div class="param-desc"><span class="param-type"><a href="#match">array[match]</a></span> the recent matches list of the team </div>
+          <div class="param-desc"><span class="param-type">example: [&quot;match1&quot;,&quot;match2&quot;,&quot;match3&quot;]</span></div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="user"><code>user</code></a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Model containing user Info</div>
+    <div class="field-items">
+      <div class="param">username (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> username contain between 3 to 8 letters only </div>
+          <div class="param-desc"><span class="param-type">example: Danidin</span></div>
+<div class="param">firstname (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> user&#x27;s first name </div>
+          <div class="param-desc"><span class="param-type">example: Daniel</span></div>
+<div class="param">lastname (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> user&#x27;s last name </div>
+          <div class="param-desc"><span class="param-type">example: Goldman</span></div>
+<div class="param">country (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> user&#x27;s country </div>
+          <div class="param-desc"><span class="param-type">example: Israel</span></div>
+<div class="param">password (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> password contains between 5 to 10 chars, at least one of them is a number and a special char format: password</div>
+          <div class="param-desc"><span class="param-type">example: joanne@56</span></div>
+<div class="param">email (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> user&#x27;s email format: email</div>
+          <div class="param-desc"><span class="param-type">example: Danidin@gmail.com</span></div>
+<div class="param">imageUrl (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> URL for the user&#x27;s image format: URL</div>
+          <div class="param-desc"><span class="param-type">example: https://cliiudinary.com/ladygaga</span></div>
+<div class="param">players (optional)</div><div class="param-desc"><span class="param-type"><a href="#player">array[player]</a></span> the favorite players list of the user </div>
+          <div class="param-desc"><span class="param-type">example: [&quot;player1&quot;,&quot;player2&quot;,&quot;player3&quot;]</span></div>
+<div class="param">teams (optional)</div><div class="param-desc"><span class="param-type"><a href="#team">array[team]</a></span> the favorite teams list of the user </div>
+          <div class="param-desc"><span class="param-type">example: [&quot;team1&quot;,&quot;team2&quot;,&quot;team3&quot;]</span></div>
+<div class="param">matches (optional)</div><div class="param-desc"><span class="param-type"><a href="#match">array[match]</a></span> the favorite matches list of the user </div>
+          <div class="param-desc"><span class="param-type">example: [&quot;match1&quot;,&quot;match2&quot;,&quot;match3&quot;]</span></div>
+    </div>  <!-- field-items -->
+  </div>
+  </body>
+</html>
